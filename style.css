@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: cursive;
+}
+
+/* INTRO PAGE */
+
+.intro-page {
+  height: 100vh;
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.fade-in {
+  animation: fade 2s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.enter-btn {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+/* MAIN PAGE */
+
+.main-page {
+  min-height: 100vh;
+  background: #fff8dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  gap: 30px;
+}
+
+.sticky {
+  width: 200px;
+  height: 200px;
+  background: #ffd966;
+  padding: 20px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  transform: rotate(-5deg);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Peel corner effect */
+.sticky::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #fff8b0 50%, transparent 50%);
+  transition: transform 0.4s ease;
+  transform-origin: bottom right;
+}
+
+/* When peeling */
+.sticky.peel {
+  transform: rotate(-5deg) translateY(-10px);
+  box-shadow: 8px 15px 20px rgba(0,0,0,0.3);
+}
+
+.sticky.peel::after {
+  transform: rotate(-30deg) scale(1.2);
+}
+
+/* Reapplied look */
+.sticky.stuck {
+  transform: rotate(-5deg);
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+}
+
+
+
